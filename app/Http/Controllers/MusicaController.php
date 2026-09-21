@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Musicas;
-
+use App\Models\Musica;
 
 class MusicaController extends Controller
 {
-
     public function index()
     {
-        return Musicas::all(); //método all() faz o select na tabela
+        return Musica::all(); //método all() faz o select na tabela
     }
 
     public function store(Request $request)
@@ -30,17 +28,17 @@ class MusicaController extends Controller
 
     public function show(string $id)
     {
-        return Musicas::findOrFail($id); //pesquisar por id
+        return Musica::findOrFail($id); //pesquisar por id
     }
 
     public function update(Request $request, string $id)
     {
-        $musica = Musicas::findOrFail($id); //verifica se o registro existe
+        $musica = Musica::findOrFail($id); //verifica se o registro existe
         return $musica->update($request->all());
     }
 
     public function destroy(string $id)
     {
-        return Musicas::destroy($id); //deleta o resgistro
+        return Musica::destroy($id); //deleta o resgistro
     }
 }
